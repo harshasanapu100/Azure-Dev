@@ -1,12 +1,17 @@
+
 sudo apt-get install nginx
+
+// Browse with public IP address with port 80 we will get NGINX home page
+
+// To forwrd request to 5000 first stop the NGINX web server
 
 sudo service nginx stop
 
-// Go to the sites-available folder
+// Go to the root folder then etc/nginx/sites-available folder and chaneg the access permission for default file
 
 sudo chmod 777 default
 
-// Modify the location content
+// Modify the location content in the default file
 
 location / {
 		# First attempt to serve request as file, then
@@ -19,6 +24,7 @@ location / {
 		 proxy_cache_bypass $http_upgrade;
 	}
 
+// Start the NGINX and browse with public IP address on port 80, we will get our published app
 
 sudo service nginx start
 
